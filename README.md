@@ -1,4 +1,4 @@
-# Coding-Academy-Web-Genesis-
+# Coding-Academy-Legend-of-the-Web-Verse
 Web dev educational repo for members of CA, VJTI
 
 ## Quickstart
