@@ -37,7 +37,11 @@ Additionally html and css are used for minimal frontend and styling.
     - Enter ```python -m venv venv``` to create venv
     - Enter ```source venv/bin/activate``` to activate it
     - Enter ```venv/bin/pip install -r requirements.txt``` to install dependencies
-    - Enter ```venv/bin/python app.py``` to start app
+    - Enter ```venv/bin/python app.py``` to start a
+
+https://github.com/user-attachments/assets/9d454478-da23-4edd-9e37-ada85d3e11ab
+
+pp
     - Open [Linkly App](http://127.0.0.1:5001) and enjoy !
 4. In case the port shows up as in use and the app doesn't work go to [app.py](app.py), scroll to the last line and change port number in  ```app.run(debug=True, port=5001) ``` to some other port number(like **6769** or something random).
 5. In case of any issues do leave a comment down inside my repo to tag me !
@@ -46,7 +50,8 @@ Additionally html and css are used for minimal frontend and styling.
 
 ![Screenshot](assets/demo_ss_1.png)
 
-<video width="640" height="480" controls>
-  <source src="assets/demo_vid.mp4" type="video/mp4">
-  Video
-</video>
+
+<video src="https://github.com/user-attachments/assets/9569cba3-a559-4327-a072-a59abc6e9156" controls></video>
+
+
+
