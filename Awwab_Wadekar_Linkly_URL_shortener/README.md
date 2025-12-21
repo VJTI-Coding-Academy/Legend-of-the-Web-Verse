@@ -1,9 +1,4 @@
 # Project Linkly - A friendly personal URL shortener
-<br>
-
-### Author: Awwab Wadekar
-### Github Username: [Once-1296](https://github.com/Once-1296) 
-<br>
 
 ## Introduction
 
@@ -31,7 +26,7 @@ Additionally html and css are used for minimal frontend and styling.
 ## How to install and run
 
 1. Create any directory to store the project in.
-2. Clone the repository and copy all the contents of the directory __Awwab_Wadekar_Linkly_URL_shortener__ to your directory.
+2. Clone the repository and copy all the contents of the directory __Awwab_Wadekar_Linkly_URL_shortener/source_code__ to your directory.
 3. Set up venv in your directory with:
     - Open terminal in your directory (normal bash/zsh in case of linux or wsl in case of windows)
     - Enter ```python -m venv venv``` to create venv
