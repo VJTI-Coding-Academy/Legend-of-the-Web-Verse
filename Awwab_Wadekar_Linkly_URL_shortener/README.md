@@ -42,7 +42,11 @@ Additionally html and css are used for minimal frontend and styling.
 ![Screenshot](assets/demo_ss_1.png)
 
 
-<video src="https://github.com/user-attachments/assets/9569cba3-a559-4327-a072-a59abc6e9156" controls></video>
+
+
+
+https://github.com/user-attachments/assets/548e18b4-29bf-4abc-a389-8c7e60cf1ab7
+
 
 
 
