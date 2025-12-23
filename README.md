@@ -85,9 +85,11 @@ As the Web-Verse expands, we plan to introduce:
 
 A huge shoutout to the legends who have contributed to the Web-Verse. Click on an avatar to view their GitHub profile!
 
-<a href="https://github.com/VJTI-Coding-Academy/Coding-Academy-Legend-of-the-Web-Verse/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=VJTI-Coding-Academy/Coding-Academy-Legend-of-the-Web-Verse" />
-</a>
+A huge shoutout to the legends who have contributed to the Web-Verse!
+
+* [**Awwab Wadekar**](https://github.com/Once-1296)
+* [**Avanish Salunke**](https://github.com/AvanishSalunke)
+
 
 ---
 
