@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Football Player Cards</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div class="hero__text">
+          <p class="eyebrow">Issue #6 • Football Player Cards</p>
+          <h1>Find player intel in one search</h1>
+          <p class="lede">
+            Local data for 48 top players across every position. Enter a name to
+            render a card with the most relevant stats for that role.
+          </p>
+          <form id="search-form" class="search" autocomplete="off">
+            <input
+              id="player-input"
+              type="text"
+              name="player"
+              placeholder="e.g., Kevin De Bruyne"
+              aria-label="Player name"
+              required
+            />
+            <button type="submit">Show card</button>
+          </form>
+          <div class="helper">
+            Try: Mbappe, Alisson Becker, Virgil van Dijk, Kevin De Bruyne
+          </div>
+          <div id="error" class="error"></div>
+        </div>
+        <div class="hero__badge">
+          <p class="badge__title">Coverage</p>
+          <div class="chips">
+            <span class="chip chip--gk">12 GK</span>
+            <span class="chip chip--def">12 DEF</span>
+            <span class="chip chip--mid">12 MID</span>
+            <span class="chip chip--fwd">12 FWD</span>
+          </div>
+          <p class="badge__hint">All data stored locally — no network calls.</p>
+        </div>
+      </header>
+
+      <section class="card-area">
+        <div id="card-slot" class="card-slot empty">
+          <p class="placeholder-title">Search to view a player card</p>
+          <p class="placeholder-copy">
+            You'll see a photo, club, country, positions, and role-focused
+            metrics the moment you submit a matching name.
+          </p>
+        </div>
+      </section>
+
+      <section class="position-list">
+        <div class="position-list__header">
+          <h2>Included roster</h2>
+          <p class="position-list__hint">
+            Need inspiration? Pick any name below to paste into the search.
+          </p>
+        </div>
+        <div id="position-grid" class="position-grid"></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
