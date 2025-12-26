@@ -89,8 +89,7 @@ A huge shoutout to the legends who have contributed to the Web-Verse!
 
 * [**Awwab Wadekar**](https://github.com/Once-1296)
 * [**Avanish Salunke**](https://github.com/AvanishSalunke)
-
-
+* [**Sarang Meshte**](https://github.com/sarang80040)
 ---
 
 <p align="center">
