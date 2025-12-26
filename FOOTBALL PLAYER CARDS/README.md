@@ -35,5 +35,5 @@ We have kept differentiation between features for different positions, as footba
 - Responsive layout with a roster grid for quick selection.
 
 ## Screenshots
-![The landing page](image.png)
-![A sample output](image-1.png)
+![The landing page](assets/IMG-20251226-WA0014.jpg)
+![A sample output](assets/IMG-20251226-WA0013.jpg)
