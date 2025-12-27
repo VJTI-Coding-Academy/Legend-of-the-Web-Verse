@@ -1,71 +1,80 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --primary: #00ffff;
+    --alert: #ff3333;
+    --bg-dark: #050505;
 }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     min-height: 100vh;
-    background-color: #050505;
+    background-color: var(--bg-dark);
     font-family: 'Poppins', sans-serif;
     display: flex;
-    justify_content: center;
+    justify-content: center;
     align-items: center;
     overflow: hidden;
     color: #fff;
+    /* Initialize vars for parallax */
+    --x: 0px;
+    --y: 0px;
 }
 
-/* --- The Moving Grid Background --- */
+/* --- The Moving Grid Background with Parallax --- */
+.grid-container {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    overflow: hidden;
+    z-index: -2;
+    perspective: 1000px;
+}
+
 .grid-bg {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 200vw;
-    height: 200vh;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
     background-image: 
         linear-gradient(rgba(0, 255, 255, 0.2) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0, 255, 255, 0.2) 1px, transparent 1px);
     background-size: 50px 50px;
-    background-position: center center;
-    transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
-    animation: gridMove 5s linear infinite;
-    z-index: -2;
+    
+    /* Mix automatic animation with Mouse Parallax (var --x and --y) */
+    transform: rotateX(60deg) translateY(0) translateZ(-100px) translateX(var(--x)) translateY(var(--y));
+    animation: gridMove 20s linear infinite;
 }
 
-/* Adds a glow/fade to the horizon */
 .grid-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, #050505 0%, transparent 60%);
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, #050505 80%);
     z-index: -1;
+    pointer-events: none;
 }
 
 @keyframes gridMove {
-    0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); }
-    100% { transform: perspective(500px) rotateX(60deg) translateY(50px) translateZ(-200px); }
+    0% { background-position: 0 0; }
+    100% { background-position: 0 500px; }
 }
 
 /* --- Glassmorphism Card --- */
 .glass-card {
     position: relative;
-    width: 380px;
+    width: 400px;
     padding: 40px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(0, 255, 255, 0.2);
     border-radius: 16px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
     text-align: center;
+    transition: transform 0.1s;
 }
 
 h2 {
     font-family: 'Orbitron', sans-serif;
-    color: #00ffff;
+    color: var(--primary);
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -77,17 +86,16 @@ input {
     width: 100%;
     padding: 12px 15px;
     margin: 10px 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     border: 1px solid #333;
     border-radius: 5px;
-    color: #00ffff;
+    color: var(--primary);
     font-size: 14px;
     outline: none;
     transition: 0.3s;
 }
-
 input:focus {
-    border-color: #00ffff;
+    border-color: var(--primary);
     box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
 }
 
@@ -96,43 +104,27 @@ button {
     width: 100%;
     padding: 12px;
     margin-top: 15px;
-    background: transparent;
-    border: 1px solid #00ffff;
-    color: #00ffff;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid var(--primary);
+    color: var(--primary);
     font-family: 'Orbitron', sans-serif;
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
     text-transform: uppercase;
 }
-
 button:hover {
-    background: #00ffff;
+    background: var(--primary);
     color: #000;
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
 }
 
-/* --- Links & Text --- */
-p {
-    margin-top: 15px;
-    font-size: 0.8rem;
-    color: #ccc;
-}
-
-a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-a:hover {
-    color: #00ffff;
-    text-shadow: 0 0 5px #00ffff;
-}
-
+/* --- Links & Alerts --- */
+p { margin-top: 15px; font-size: 0.8rem; color: #aaa; }
+a { color: #fff; text-decoration: none; transition: 0.3s; }
+a:hover { color: var(--primary); text-shadow: 0 0 5px var(--primary); }
 .flash-msg {
-    color: #ff3333;
+    color: var(--alert);
     font-size: 0.9rem;
     margin-bottom: 10px;
     text-shadow: 0 0 5px rgba(255, 51, 51, 0.5);

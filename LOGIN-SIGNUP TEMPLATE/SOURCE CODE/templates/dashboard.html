@@ -1,32 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Mainframe</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
 
-    <div class="grid-bg"></div>
-    <div class="grid-overlay"></div>
-
-    <div class="glass-card" style="width: 500px;">
-        <h2>DASHBOARD</h2>
-        <h3 style="color: white; margin-bottom: 20px;">Welcome, User: <span style="color: #00ffff;">{{ name }}</span></h3>
-        <p>Session Active. All systems operational.</p>
-        
-        <a href="{{ url_for('logout') }}">
-            <button style="border-color: #ff3333; color: #ff3333;">Terminate Session</button>
-        </a>
-    </div>
+{% block content %}
+<div class="glass-card" style="width: 500px;">
+    <h2>DASHBOARD</h2>
+    <h3 style="color: white; margin-bottom: 20px;">Welcome, User: <span style="color: #00ffff;">{{ name }}</span></h3>
+    <p>Session Active. All systems operational.</p>
     
-    <style>
-        a button:hover {
-            background: #ff3333 !important;
-            color: white !important;
-            box-shadow: 0 0 20px rgba(255, 51, 51, 0.6) !important;
-        }
-    </style>
+    <a href="{{ url_for('logout') }}">
+        <button style="border-color: #ff3333; color: #ff3333; margin-top: 30px;">Terminate Session</button>
+    </a>
+</div>
 
-</body>
-</html>
+<style>
+    /* Specific override for logout button hover inside dashboard */
+    a button:hover {
+        background: #ff3333 !important;
+        color: white !important;
+        box-shadow: 0 0 20px rgba(255, 51, 51, 0.6) !important;
+    }
+</style>
+{% endblock %}
