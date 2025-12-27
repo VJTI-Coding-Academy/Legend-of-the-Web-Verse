@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}System Login{% endblock %}
+
+{% block content %}
+<div class="glass-card">
+    <h2>Identify</h2>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-msg">{{ messages[0] }}</div>
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        <input type="text" name="username" placeholder="Username" required autocomplete="off">
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Access</button>
+    </form>
+
+    <div style="margin-top: 15px; display: flex; justify-content: space-between; font-size: 0.8rem;">
+        <a href="{{ url_for('signup') }}">Create ID</a>
+        <a href="{{ url_for('reset_request') }}">Forgot Password?</a>
+    </div>
+</div>
+{% endblock %}

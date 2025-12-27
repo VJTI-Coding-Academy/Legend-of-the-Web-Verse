@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}New Credentials{% endblock %}
+
+{% block content %}
+<div class="glass-card">
+    <h2>Update Key</h2>
+    
+    <form method="POST">
+        <input type="password" name="password" placeholder="New Password" required>
+        <button type="submit">Update Password</button>
+    </form>
+</div>
+{% endblock %}

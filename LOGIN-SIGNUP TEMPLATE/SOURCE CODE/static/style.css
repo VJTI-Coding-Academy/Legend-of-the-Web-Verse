@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500&display=swap');
+
+:root {
+    --primary: #00ffff;
+    --alert: #ff3333;
+    --bg-dark: #050505;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    min-height: 100vh;
+    background-color: var(--bg-dark);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #fff;
+    /* Initialize vars for parallax */
+    --x: 0px;
+    --y: 0px;
+}
+
+/* --- The Moving Grid Background with Parallax --- */
+.grid-container {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    overflow: hidden;
+    z-index: -2;
+    perspective: 1000px;
+}
+
+.grid-bg {
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background-image: 
+        linear-gradient(rgba(0, 255, 255, 0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 50px 50px;
+    
+    /* Mix automatic animation with Mouse Parallax (var --x and --y) */
+    transform: rotateX(60deg) translateY(0) translateZ(-100px) translateX(var(--x)) translateY(var(--y));
+    animation: gridMove 20s linear infinite;
+}
+
+.grid-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, #050505 80%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes gridMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 500px; }
+}
+
+/* --- Glassmorphism Card --- */
+.glass-card {
+    position: relative;
+    width: 400px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 16px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+    text-align: center;
+    transition: transform 0.1s;
+}
+
+h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--primary);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* --- Inputs --- */
+input {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #333;
+    border-radius: 5px;
+    color: var(--primary);
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+}
+
+/* --- Buttons --- */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+button:hover {
+    background: var(--primary);
+    color: #000;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+}
+
+/* --- Links & Alerts --- */
+p { margin-top: 15px; font-size: 0.8rem; color: #aaa; }
+a { color: #fff; text-decoration: none; transition: 0.3s; }
+a:hover { color: var(--primary); text-shadow: 0 0 5px var(--primary); }
+.flash-msg {
+    color: var(--alert);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px rgba(255, 51, 51, 0.5);
+}
