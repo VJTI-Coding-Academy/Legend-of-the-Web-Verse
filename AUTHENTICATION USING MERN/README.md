@@ -1,149 +1,153 @@
-***A generic, high-performance authentication template featuring a Flask backend, SQLAlchemy database, and a Dynamic Parallax Glassmorphism UI.***
+*A high-performance, full-stack authentication template built on the MERN Stack (MongoDB, Express, React, Node.js). It features a futuristic Glassmorphism UI with a dynamic, mouse-responsive Parallax Grid.*
 
->This project serves as a foundational template for web applications requiring secure user management. It includes a futuristic, interactive "Mainframe" aesthetic where the background grid reacts to mouse movements, creating a 3D depth effect.
+>This project separates concerns into a robust REST API backend and a responsive React frontend, making it a perfect foundation for modern web applications requiring secure user management and detailed user registration.
 
-## ✨ Features
-### 🖥️ Frontend & UI
-1. Glassmorphism Design: Modern, translucent cards with blur effects (backdrop-filter).
+# ✨ Features
+### 🖥️ Frontend (React)
+1. `Glassmorphism UI`: Translucent cards with blur effects (backdrop-filter) for a modern aesthetic.
 
-2. Dynamic Parallax Background:
+2. `Dynamic Parallax Background`:
 
-3. Auto-Scroll: Infinite grid animation simulating forward movement.
+    >`Interactive Depth`: The background grid and forms tilt and shift based on mouse position using CSS Variables and React Hooks.
 
-4. Interactive Depth: The grid and forms tilt and shift based on mouse position (JS + CSS Variables).
+    >`Infinite Animation`: A continuous scrolling grid simulating forward movement.
 
-5. Responsive: Centered layout that adapts to screen sizes.
+3. `Detailed Registration`: Captures Username, Email, Password, Date of Birth, Gender, and Country (full list).
 
-### ⚙️ Backend & Logic
-1. User Authentication: Secure Login and Signup flows   using Flask-Login.
+4. `Flexible Login`: Users can sign in using either their Username OR Email.
 
-2. Password Security: Scrypt hashing via werkzeug.security.
+### ⚙️ Backend (Node.js & Express)
+1. `Secure API`: RESTful architecture handling authentication routes.
 
-3. Password Recovery: "Forgot Password" functionality with secure, time-sensitive email tokens (Flask-Mail).
+2. `Database`: MongoDB (via Mongoose) for flexible data       storage.
 
-4. Session Management: Protected Dashboard route (accessible only after login).
+3. `Security`:
 
-5. Flash Messages: Instant feedback for errors (e.g., "Invalid password") or success.
+    >Password Hashing with bcryptjs.
 
+    >JWT (JSON Web Tokens) for secure session management.
 
-## 🛠️ Tech Stack
->Language: Python 3.x
+4. `Validation`: Checks for existing users/emails to prevent duplicates.
 
->Framework: Flask
+# 🛠️ Tech Stack
+> **Frontend**: React.js, React Router, Axios, CSS3 (Variables, Animations).
 
->Database: SQLite (Default, easily scalable to PostgreSQL/MySQL via SQLAlchemy)
+> **Backend**: Node.js, Express.js.
 
->ORM: Flask-SQLAlchemy
+> **Database**: MongoDB (Atlas Cloud or Local).
 
->Styling: CSS3 (Animations, Variables, Flexbox)
+> **Authentication**: JWT, Bcrypt.js.
 
->Scripting: Vanilla JavaScript (Mouse tracking logic)
-
-## 🚀 Installation Guide
+# 🚀 Installation Guide
 Follow these steps to get the system running locally.
 
-### 1. Prerequisites
->1. Python 3.8 or higher installed.
+1. Prerequisites
+    > Node.js (v14 or higher) installed.
 
->2. A Gmail account (or any SMTP provider) for the "Forgot Password" email feature.
+    > A MongoDB Connection String (local or MongoDB Atlas).
 
-### 2. Clone or Download
->Download the project files to your local machine.
+2. Clone the Repository
+    > Download the project files to your local machine.
 
-### 3. Set Up Virtual Environment (Recommended)
->It is best practice to run Flask apps in a virtual environment to isolate dependencies.
+3. Backend Setup (API)
+    > Navigate to the backend folder, install dependencies, and start the API.
 
-Windows:
-```
-python -m venv venv
-venv\Scripts\activate
-```
-Mac/Linux:
-```
-python3 -m venv venv
-source venv/bin/activate
-```
-### 4. Install Dependencies
-Install the required packages listed in `requirements.txt`.
-```
-pip install -r requirements.txt
-```
-## ⚙️ Configuration (.env)
->You must create a .env file in the root directory to store sensitive keys and email settings.
+    ```
+    cd backend
+    npm install
+    ```
+    `Configuration`: Create a `.env` file inside the backend folder:
+    ```
+    # backend/.env
+    MONGO_URL=mongodb+srv://<username>:<password>@cluster0.mongodb.net/myDB?retryWrites=true&w=majority
+    JWT_SECRET=your_super_secret_key_here
+    PORT=5000
+    ```
+    **Note**: Replace <username> and <password> with your actual MongoDB credentials.
 
-1. Create a file named .env.
+    ``Start Server:``
+    ```
+    node index.js
+    # Output: Backend server is running on port 5000!
+    # Output: ✅ DB Connection Successful
+    ```
+4. Frontend Setup (Client)
+    - Open a new terminal window, navigate to the frontend folder, and install dependencies.
+    ```
+    cd frontend
+    ```
+    `Start Client:`
+    ```
+    npm start
+    ```
+    The application will launch in your browser at `http://localhost:3000`.
 
-2. Paste the following content and update the values:
-```
-# Security
-SECRET_KEY=your_super_secure_random_string
-DATABASE_URL=sqlite:///db.sqlite3
+# 🏃‍♂️ Usage
+1. Register:
 
-# Email Settings (Required for Forgot Password)
-# Note: For Gmail, you must use an "App Password", not your login password.
-MAIL_SERVER=smtp.gmail.com
-MAIL_PORT=587
-MAIL_USE_TLS=True
-MAIL_USERNAME=your_email@gmail.com
-MAIL_PASSWORD=your_app_password
-```
-`Tip:` To get a Gmail App Password: Go to Google Account > Security > 2-Step Verification > App Passwords.
+    - Go to the Signup page.
 
-## 🏃‍♂️ Usage
-### 1. Initialize Database
-The application is configured to create the database automatically on the first run.
+    - Fill in all details (Username, Email, DOB, Country, etc.).
 
-### 2. Run the App
-Execute the main application file:
+    - Click "Create ID".
 
-```
-python app.py
-```
-### 3. Access
-Open your browser and navigate to: http://127.0.0.1:5000/
+2. Login:
 
->`Sign Up:` Create a new account.
+    - Use either your Username or Email.
 
->`Login:` Access the dashboard.
+   - Enter your password.
 
->`Forgot Password:` Test the email recovery link (check your .env email inbox/spam folder).
+3. Dashboard:
 
-## 📂 Project Structure
+    - Upon success, you are redirected to the protected Dashboard.
+
+    - View your user profile details (ID, Origin, Class/Gender).
+
+    - Click "Terminate Session" to logout.
+
+# 📂 Project Structure
 ```
 /project-root
 │
-├── app.py                 # Main Flask application logic (Routes, Models, Config)
-├── requirements.txt       # List of Python dependencies
-├── .env                   # Environment variables (Hidden file)
+├── backend/                # Backend API (Node/Express)
+│   ├── models/
+│   │   └── User.js         # Mongoose Schema
+│   ├── routes/
+│   │   └── auth.js         # API Endpoints (/register, /login)
+│   ├── .env                # Database Secrets (Create this file!)
+│   └── index.js            # Server Entry Point
 │
-├── instance/
-│   └── db.sqlite3         # Database file (Created after running app)
-│
-├── static/
-│   ├── style.css          # Global styles, Glassmorphism, Animations
-│   └── parallax.js        # Mouse tracking logic for parallax effect
-│
-└── templates/
-    ├── base.html          # Base layout (includes grid background & scripts)
-    ├── login.html         # Login Form
-    ├── signup.html        # Registration Form
-    ├── forgot_password.html # Email entry for reset
-    ├── reset_token.html   # New password entry
-    └── dashboard.html     # Protected user area
+└── frontend/               # Frontend Client (React)
+    ├── src/
+    │   ├── components/
+    │   │   └── Background.jsx  # Parallax Logic
+    │   ├── pages/
+    │   │   ├── Login.jsx       # Login Form
+    │   │   ├── Signup.jsx      # Registration Form
+    │   │   └── Dashboard.jsx   # Protected User Area
+    │   ├── App.js              # Routing
+    │   └── index.css           # Global Styles & Animations
+    └── package.json
 ```
 
-## ❓ Troubleshooting
-`Q: The email isn't sending!`
+# ❓ Troubleshooting
+Q: `MongoServerError: bad auth : authentication failed`
 
->A: Ensure you are NOT using your standard Gmail password. You must generate an App Password if 2-Factor Authentication is on. Also, check that MAIL_PORT is 587 and MAIL_USE_TLS is True.
+    A: The password in your .env file is incorrect.
 
-`Q: "Table not found" error?`
+    1. Go to MongoDB Atlas > Database Access.
 
->A: If you changed the database models (added columns), delete the instance/db.sqlite3 file and restart the app. It will regenerate a fresh database.
+    2. Edit your user and reset the password.
 
-`Q: The background isn't moving with my mouse.`
+    3. Update the MONGO_URL in backend/.env with the new password.
 
->A: Ensure parallax.js is correctly linked in base.html and that your browser has JavaScript enabled.
+Q:  `MongooseError: The 'uri' parameter... got "undefined"`
 
-## 📜 License
->This project is open-source and free to use for personal or commercial projects.
+    A: The server cannot find your .env file. Ensure the file is named exactly .env (no .txt extension) and is located inside the backend/ folder, not the root.
+
+Q: `Registration works, but Login fails?`
+
+    A: Check your browser console (F12) for network errors. Ensure your backend is running on Port 5000 and the frontend is sending requests to http://localhost:5000.
+
+# 📜 License
+This project is open-source and free to use for personal or commercial projects.
