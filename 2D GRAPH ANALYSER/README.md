@@ -24,7 +24,7 @@ It works with
 ## How to install and run
 
 1. Create any directory to store the project in.
-2. Clone the repository and copy all the contents of the directory __2D GRAPH ANALYSER?SOURCE CODE__ to your directory.
+2. Clone the repository and copy all the contents of the directory __2D GRAPH ANALYSER/SOURCE CODE__ to your directory.
 3. Set up venv in your directory with:
     - Open terminal in your directory (normal bash/zsh in case of linux or wsl in case of windows)
     - Enter ```python -m venv venv``` to create venv
