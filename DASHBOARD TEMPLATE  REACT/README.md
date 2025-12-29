@@ -44,12 +44,12 @@ It works with
 
 2. <b>Edit App.tsx</b>
 
-![Guide Image 5](assets/guide_3.png)
+![Guide Image 3](assets/guide_2.2.png)
 
 3. <b>Edit Navbar.tsx</b>
 
-![Guide Image 3](assets/guide_2.2.png)
 ![Guide Image 4](assets/guide_2.5.png)
+![Guide Image 5](assets/guide_3.png)
 
 4. <b>Edit New Component</b>
 
